@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kronika Tysiąca Lat — 1000 lat kontrowersyjnych działań Kościoła katolickiego wobec Polski</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #e8dcc0;
+    --parchment-light: #f1e6cc;
+    --parchment-dark: #c9b88e;
+    --ink: #1f150a;
+    --ink-soft: #3a2818;
+    --blood: #6b1f1a;
+    --blood-deep: #4a1310;
+    --gold: #8a6914;
+    --gold-bright: #b8902a;
+    --shadow: rgba(31, 21, 10, 0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    color: var(--ink);
+    background-color: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(184, 144, 42, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 40%, rgba(107, 31, 26, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 90%, rgba(58, 40, 24, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(184, 144, 42, 0.08) 0%, transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Noise / aged paper texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.13 0 0 0 0 0.06 0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+  }
+
+  /* Vignette / aged edges */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background:
+      radial-gradient(ellipse at center, transparent 50%, rgba(58, 40, 24, 0.35) 100%),
+      linear-gradient(180deg, rgba(58, 40, 24, 0.18) 0%, transparent 8%, transparent 92%, rgba(58, 40, 24, 0.18) 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 3;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.hero {
+    text-align: center;
+    padding: 40px 0 70px;
+    position: relative;
+  }
+
+  .hero .anno {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: inline-block;
+    padding: 0 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Pirata One', 'UnifrakturCook', serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7.5vw, 5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 0 0 24px;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 0 rgba(184, 144, 42, 0.2);
+  }
+
+  .hero h1 .accent {
+    color: var(--blood);
+    display: block;
+  }
+
+  .hero .subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Ornamental divider */
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 36px 0;
+    color: var(--gold);
+  }
+
+  .ornament .line {
+    flex: 1;
+    max-width: 140px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  }
+
+  .ornament .glyph {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold-bright);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro {
+    margin: 0 0 80px;
+    padding: 32px 8px;
+    position: relative;
+  }
+
+  .intro h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: var(--blood);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .intro p {
+    margin-bottom: 18px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .intro p:first-of-type::first-letter {
+    font-family: 'Pirata One', serif;
+    font-size: 4.5em;
+    float: left;
+    line-height: 0.85;
+    margin: 6px 12px 0 0;
+    color: var(--blood);
+    text-shadow: 2px 2px 0 rgba(138, 105, 20, 0.15);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .chapter {
+    margin: 100px 0 40px;
+    position: relative;
+  }
+
+  .chapter-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 50px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(138, 105, 20, 0.35);
+    position: relative;
+  }
+
+  .chapter-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(138, 105, 20, 0.2);
+  }
+
+  .roman {
+    font-family: 'Pirata One', serif;
+    font-size: clamp(4rem, 10vw, 6.5rem);
+    line-height: 0.9;
+    color: var(--blood);
+    flex-shrink: 0;
+    text-shadow:
+      2px 2px 0 rgba(138, 105, 20, 0.2),
+      0 4px 12px rgba(74, 19, 16, 0.15);
+  }
+
+  .chapter-title {
+    flex: 1;
+    padding-top: 8px;
+  }
+
+  .chapter-title .chapter-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .chapter-title h2 {
+    font-family: 'Pirata One', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  /* ---------- EVENTS ---------- */
+  .event {
+    margin-bottom: 48px;
+    padding-left: 0;
+    position: relative;
+  }
+
+  .event-year {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--blood);
+    margin-bottom: 6px;
+    display: inline-block;
+    padding: 4px 0;
+    border-bottom: 1.5px solid var(--blood);
+  }
+
+  .event h3 {
+    font-family: 'Pirata One', serif;
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 10px 0 16px;
+  }
+
+  .event p {
+    text-align: justify;
+    hyphens: auto;
+    color: var(--ink-soft);
+  }
+
+  .event p + p {
+    margin-top: 12px;
+  }
+
+  /* ---------- CONCLUSION ---------- */
+  .conclusion {
+    margin: 100px 0 0;
+    padding: 50px 32px;
+    background: linear-gradient(180deg, rgba(184, 144, 42, 0.08) 0%, rgba(107, 31, 26, 0.04) 100%);
+    border-top: 1px solid rgba(138, 105, 20, 0.4);
+    border-bottom: 1px solid rgba(138, 105, 20, 0.4);
+    position: relative;
+  }
+
+  .conclusion::before,
+  .conclusion::after {
+    content: '❦';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-bright);
+    font-size: 1.2rem;
+    background: var(--parchment);
+    padding: 0 16px;
+  }
+
+  .conclusion::before { top: -12px; }
+  .conclusion::after { bottom: -12px; }
+
+  .conclusion h2 {
+    font-family: 'Pirata One', serif;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: var(--blood);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .conclusion p {
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 16px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  footer .seal {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--blood);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative;
+    background: radial-gradient(circle at 35% 30%, var(--blood) 0%, var(--blood-deep) 70%);
+    box-shadow:
+      inset -4px -4px 8px rgba(0,0,0,0.3),
+      inset 3px 3px 6px rgba(255,255,255,0.1),
+      0 4px 8px rgba(74, 19, 16, 0.3);
+  }
+
+  footer .seal::after {
+    content: '✠';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(232, 220, 192, 0.5);
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1, .hero .anno, .hero .subtitle, .intro {
+    animation: fadeUp 1.1s ease-out backwards;
+  }
+  .hero .anno { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.3s; }
+  .hero .subtitle { animation-delay: 0.7s; }
+  .intro { animation-delay: 1s; }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 640px) {
+    body { font-size: 17px; line-height: 1.7; }
+    .wrap { padding: 30px 20px 60px; }
+    header.hero { padding: 20px 0 40px; }
+    .hero .anno { font-size: 0.7rem; letter-spacing: 0.3em; }
+    .chapter { margin: 70px 0 30px; }
+    .chapter-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+    .chapter-title { padding-top: 0; }
+    .roman { line-height: 1; }
+    .intro p:first-of-type::first-letter {
+      font-size: 3.8em;
+      margin: 4px 8px 0 0;
+    }
+    .event { margin-bottom: 36px; }
+    .conclusion { padding: 36px 18px; }
+  }
+
+  /* Selection styling */
+  ::selection {
+    background: var(--blood);
+    color: var(--parchment-light);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="anno">Anno Domini · MMXXVI</div>
+    <h1>
+      Kronika
+      <span class="accent">Tysiąca Lat</span>
+    </h1>
+    <p class="subtitle">1000 lat kontrowersyjnych działań Kościoła katolickiego wobec Polski</p>
+    <div class="ornament">
+      <span class="line"></span>
+      <span class="glyph">✦</span>
+      <span class="line"></span>
+    </div>
+  </header>
+
+  <section class="intro">
+    <h2>Wprowadzenie</h2>
+    <p>Poniższe zestawienie przedstawia wybrane wydarzenia z historii Polski, które można interpretować jako przykłady działań papiestwa, hierarchii kościelnej, duchowieństwa katolickiego lub instytucji związanych z Kościołem katolickim sprzecznych z interesem państwa polskiego, jego obywateli albo polskiej racji stanu.</p>
+    <p>Tekst nie jest wymierzony w osoby wierzące ani w ogół katolików. Dotyczy przede wszystkim decyzji politycznych, instytucjonalnych i historycznych, które — z perspektywy autora — miały negatywne konsekwencje dla Polski.</p>
+    <p>Dla większej przejrzystości wydarzenia zostały uporządkowane chronologicznie oraz podzielone na okresy historyczne.</p>
+  </section>
+
+  <!-- ========== CHAPTER I ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">I</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część pierwsza</div>
+        <h2>Średniowiecze i zakon krzyżacki</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">973 r.</span>
+      <h3>Zjazd w Kwedlinburgu</h3>
+      <p>Podczas zjazdu w Kwedlinburgu cesarz niemiecki, jako katolicki władca, zabrał na dwór cesarski syna Mieszka I jako zakładnika i gwaranta pokoju po konflikcie związanym z najazdem Hodona na ziemie polskie.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1234 r.</span>
+      <h3>Utrwalenie władzy Zakonu Krzyżackiego</h3>
+      <p>Sprowadzony przez Konrada Mazowieckiego Zakon Krzyżacki otrzymał ziemię chełmińską w dzierżawę. Z czasem, dzięki poparciu papiestwa, zakon zaczął budować własny organizm państwowy, uniezależniając się od Polski. W kolejnych stuleciach państwo krzyżackie wielokrotnie prowadziło działania wojenne przeciw ziemiom polskim.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1308 r.</span>
+      <h3>Rzeź Gdańska</h3>
+      <p>Zakon Krzyżacki dokonał w Gdańsku krwawej pacyfikacji, w wyniku której zginęło wielu mieszkańców miasta. Wydarzenie to stało się jednym z symboli brutalnej polityki zakonu wobec Polski.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1321 r.</span>
+      <h3>Sprawa Pomorza i wyrok przeciw Krzyżakom</h3>
+      <p>Watykan początkowo skazał Zakon Krzyżacki na grzywnę oraz nakazał zwrot Pomorza królowi Polskiemu. Po apelacji zakonu decyzja została jednak zmieniona, a Pomorze pozostało pod władzą Krzyżaków. Polska nie uzyskała realnego zadośćuczynienia za zbrodnie i straty poniesione w wyniku działań zakonu.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1411 r.</span>
+      <h3>I pokój toruński</h3>
+      <p>Po zwycięstwie Polski i Litwy nad zakonem pod Grunwaldem zawarto I pokój toruński. Mimo militarnego sukcesu strony polsko-litewskiej warunki pokoju były ograniczone, a zakon zachował znaczną część swojej pozycji politycznej i terytorialnej.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1444 r.</span>
+      <h3>Zerwanie pokoju z Turcją i klęska pod Warną</h3>
+      <p>Władysław Warneńczyk, po zawarciu korzystnego pokoju z Turcją, pod wpływem legata papieskiego Juliana Cesariniego zerwał porozumienie i rozpoczął wyprawę wojenną. Zginął w bitwie pod Warną, co doprowadziło do okresu bezkrólewia w Polsce oraz poważnych konsekwencji politycznych dla Europy Środkowej.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">3 czerwca 1460 r.</span>
+      <h3>Ekskomunika Kazimierza Jagiellończyka</h3>
+      <p>Papież Pius II nałożył ekskomunikę na króla Polski Kazimierza Jagiellończyka i wspierał Zakon Krzyżacki w trakcie wojny trzynastoletniej. Z perspektywy polskiej polityki było to działanie wymierzone w interes państwa polskiego.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1509 r.</span>
+      <h3>Decyzja papieża Juliusza II w sprawie Prus Zakonnych</h3>
+      <p>Papież Juliusz II odwołał dokument zobowiązujący Prusy Zakonne do złożenia hołdu lennego królowi Polski. Decyzja ta osłabiła pozycję Polski i przyczyniła się do dalszego konfliktu z dawnym państwem krzyżackim.</p>
+    </div>
+  </article>
+
+  <!-- ========== CHAPTER II ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">II</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część druga</div>
+        <h2>Reformacja, kontrreformacja i ograniczanie tolerancji religijnej</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1520 r.</span>
+      <h3>Edykt toruński</h3>
+      <p>Zygmunt I Stary wydał edykt toruński, który wprowadzał ograniczenia wobec pism protestanckich. Zakaz ich rozpowszechniania wiązał się z groźbą banicji i konfiskaty majątku. Był to jeden z pierwszych kroków w stronę represji kontrreformacyjnych na ziemiach polskich.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1555 r.</span>
+      <h3>Niezrealizowana idea polskiego Kościoła narodowego</h3>
+      <p>Sejm piotrkowski uchwalił, że król powinien zwołać sobór narodowy i doprowadzić do ustanowienia niezależnego polskiego Kościoła narodowego. Król Zygmunt II August, pod wpływem nacisków nuncjusza apostolskiego, nie zrealizował tych postanowień, pozostawiając sprawy Kościoła w Polsce pod silnym wpływem Watykanu.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">24 czerwca 1575 r.</span>
+      <h3>Tumult cmentarny</h3>
+      <p>Podburzony przez duchowieństwo katolickie tłum zaatakował obiekty związane z protestantami. Gdy nie udało się wtargnąć do świątyni ewangelickiej, zniszczono pobliski cmentarz niekatolicki i zbezczeszczono groby. Wśród pochowanych znajdowali się również zasłużeni obywatele Rzeczypospolitej, m.in. Stanisław Myszkowski — kalwin, współpracownik Zygmunta Augusta i sygnatariusz unii lubelskiej.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1577–1578 r.</span>
+      <h3>Klątwa na konfederację warszawską</h3>
+      <p>Biskupi katoliccy rzucili klątwę na uczestników konfederacji warszawskiej z 1573 r., która gwarantowała wolność religijną w Rzeczypospolitej. W 1578 r. papież Grzegorz XIII podtrzymał tę decyzję bullą. Był to symboliczny atak na jedną z najważniejszych zasad tolerancji religijnej w dawnej Polsce.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1589 r.</span>
+      <h3>Drugi synod piotrkowski</h3>
+      <p>Podczas drugiego synodu piotrkowskiego biskupi katoliccy, przy udziale nuncjusza papieskiego i aprobacie Zygmunta III Wazy, dążyli do ograniczenia praw innowierców zagwarantowanych przez konfederację warszawską. Wprowadzono także postulaty zwiększające przywileje Kościoła katolickiego oraz ograniczające działalność szkół i wspólnot niekatolickich.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1594 r.</span>
+      <h3>Zygmunt III Waza i konflikt ze Szwecją</h3>
+      <p>Zygmunt III Waza, jako król Polski i Szwecji, złamał obietnice dotyczące zachowania wolności religijnej dla szwedzkich protestantów oraz nieingerowania katolicyzmu w sprawy Szwecji. Doprowadziło to do buntu, wojny i utraty przez niego tronu szwedzkiego. W szerszej perspektywie konflikt ten przyczynił się do długotrwałych wojen polsko-szwedzkich, zakończonych m.in. potopem szwedzkim.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1603 r.</span>
+      <h3>Dzieła Jana Mączyńskiego na indeksie ksiąg zakazanych</h3>
+      <p>Dzieła Jana Mączyńskiego — polskiego leksykografa, tłumacza, posła i arianina — zostały wpisane na indeks ksiąg zakazanych. Mączyński był autorem pierwszego polsko-łacińskiego słownika oraz zaginionej „Rozprawy o języku słowiańskim". Decyzja ta wpisywała się w szerszą politykę ograniczania dorobku intelektualnego środowisk niekatolickich.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1610–1612 r.</span>
+      <h3>Utrata szansy na unię polsko-rosyjską</h3>
+      <p>Władysław IV Waza, syn Zygmunta III Wazy, mógł objąć tron rosyjski. Według tej interpretacji szansa na trwałą unię polsko-rosyjską została zaprzepaszczona z powodu oporu Zygmunta III wobec przejścia Władysława na prawosławie. Ostatecznie Polacy zostali wyparci z Kremla w 1612 r., a w Rosji umocniła się dynastia Romanowów.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1638 r.</span>
+      <h3>Likwidacja Akademii Rakowskiej</h3>
+      <p>Katoliccy biskupi doprowadzili do likwidacji protestanckiej Akademii Rakowskiej, mimo sprzeciwu części świeckich posłów — zarówno katolickich, jak i niekatolickich. Był to jeden z najpoważniejszych ciosów wymierzonych w środowisko Braci Polskich.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1658 r.</span>
+      <h3>Wygnanie Braci Polskich</h3>
+      <p>Wydano nakaz opuszczenia Rzeczypospolitej przez Braci Polskich albo przejścia przez nich na katolicyzm. Decyzję tę podjęto m.in. pod wpływem biskupa krakowskiego Andrzeja Trzebickiego. Podobnych represji nie zastosowano wobec innych grup protestanckich.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1689 r.</span>
+      <h3>Stracenie Kazimierza Łyszczyńskiego</h3>
+      <p>Kazimierz Łyszczyński, zasłużony wojskowy i obywatel Rzeczypospolitej, został skazany na śmierć za prywatne zapiski o charakterze ateistycznym. Jego majątek skonfiskowano, a egzekucja stała się symbolem brutalności religijnej nietolerancji.</p>
+    </div>
+  </article>
+
+  <!-- ========== CHAPTER III ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">III</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część trzecia</div>
+        <h2>Rozbiory i stosunek papiestwa do polskich dążeń niepodległościowych</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">22 maja 1733 r.</span>
+      <h3>Ograniczenie praw niekatolików</h3>
+      <p>Sejm konwokacyjny, pod wpływem środowisk katolickich, odebrał niekatolickim obywatelom Rzeczypospolitej część praw politycznych, w tym dostęp do urzędów i możliwość pełnienia funkcji publicznych.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1772 r.</span>
+      <h3>I rozbiór Polski</h3>
+      <p>Pierwszy rozbiór Polski był ciosem w suwerenność Rzeczypospolitej. W ocenie autora polityka papiestwa wobec państw zaborczych nie stanowiła realnej obrony Polski ani jej niepodległości.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1792 r.</span>
+      <h3>Konfederacja targowicka</h3>
+      <p>Konfederacja targowicka została zawiązana przeciw królowi Stanisławowi Augustowi Poniatowskiemu oraz Konstytucji 3 maja. Wśród jej zwolenników i uczestników znajdowali się również przedstawiciele hierarchii katolickiej. Nuncjusz papieski naciskał na króla, aby przystąpił do konfederacji, mimo że była ona wspierana przez Rosję.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1793 r.</span>
+      <h3>II rozbiór Polski</h3>
+      <p>Drugi rozbiór Polski był kolejnym etapem likwidacji państwa polskiego. Według tej interpretacji postawa papiestwa i części duchowieństwa nie tylko nie pomogła Polsce, lecz w praktyce sprzyjała interesom zaborców.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1794 r.</span>
+      <h3>Powstanie kościuszkowskie</h3>
+      <p>Podczas powstania kościuszkowskiego polscy patrioci próbowali ratować resztki niepodległości. Część biskupów związanych z targowicą została uznana za zdrajców i ukarana śmiercią.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">Październik 1795 r.</span>
+      <h3>III rozbiór Polski</h3>
+      <p>Trzeci rozbiór Polski ostatecznie doprowadził do likwidacji Rzeczypospolitej jako niepodległego państwa.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">Grudzień 1795 r.</span>
+      <h3>Potępienie powstania kościuszkowskiego</h3>
+      <p>Papież Pius VI wydał dokument potępiający powstanie kościuszkowskie. W polskiej perspektywie niepodległościowej decyzja ta była odbierana jako poparcie dla porządku narzuconego przez zaborców.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1831 r.</span>
+      <h3>Brewe „Impensa charitas"</h3>
+      <p>Papież Grzegorz XVI skierował do biskupów działających na ziemiach polskich pod zaborem rosyjskim brewe „Impensa charitas", w którym zalecał hamowanie nastrojów powstańczych oraz promowanie posłuszeństwa wobec cara.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1832 r.</span>
+      <h3>Encyklika „Cum primum"</h3>
+      <p>W encyklice „Cum primum" papież Grzegorz XVI potępił powstanie listopadowe, przedstawiając je jako bunt przeciw legalnej władzy. Nakazywał duchowieństwu wspieranie porządku politycznego narzuconego przez Rosję, co stało w sprzeczności z dążeniami niepodległościowymi Polaków.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1864 r.</span>
+      <h3>Potępienie powstania styczniowego</h3>
+      <p>Papież Pius IX potępił powstanie styczniowe, uznając władzę cara nad ziemiami polskimi. Polskie dążenia niepodległościowe zostały przedstawione jako działania rewolucyjne i niesprawiedliwy bunt.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1894 r.</span>
+      <h3>Wezwanie do posłuszeństwa wobec zaborców</h3>
+      <p>Papież Leon XIII wzywał polskich biskupów, duchownych i wiernych do posłuszeństwa wobec władz zaborczych, w tym wobec Prus i Rosji.</p>
+    </div>
+  </article>
+
+  <!-- ========== CHAPTER IV ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">IV</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część czwarta</div>
+        <h2>Odzyskanie niepodległości i II wojna światowa</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1918 r.</span>
+      <h3>Niepodległość Polski a stanowisko Watykanu</h3>
+      <p>Po 123 latach zaborów Polska odzyskała niepodległość. Watykan nie uznał od razu odrodzonego państwa polskiego.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1919 r.</span>
+      <h3>Uznanie niepodległej Polski przez Watykan</h3>
+      <p>Dopiero po kilku miesiącach od odzyskania niepodległości, pod wpływem sytuacji międzynarodowej i nacisków sojuszników Polski, Watykan uznał niepodległe państwo polskie.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1933 r.</span>
+      <h3>Konkordat Watykanu z III Rzeszą</h3>
+      <p>Watykan podpisał konkordat z III Rzeszą Adolfa Hitlera. Było to jedno z pierwszych międzynarodowych porozumień zawartych z nazistowskimi Niemcami, co w praktyce wzmacniało ich pozycję dyplomatyczną.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">Październik 1939 r.</span>
+      <h3>Decyzje kościelne na okupowanych ziemiach polskich</h3>
+      <p>Po agresji Niemiec na Polskę Watykan dopuścił do mianowania niemieckich duchownych na terenach okupowanych, co autor interpretuje jako naruszenie interesów Polski oraz konkordatu zawartego wcześniej z Rzecząpospolitą.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">15 października 1943 r.</span>
+      <h3>Zmiana dewizy Wojska Polskiego</h3>
+      <p>Rząd na uchodźstwie zmienił dewizę Wojska Polskiego z „Honor i Ojczyzna" na „Bóg, Honor i Ojczyzna". Według autora była to decyzja symboliczna, która w czasie wojny skupiała uwagę na kwestiach ideologicznych zamiast wyłącznie na walce o niepodległość.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1945–1950 r.</span>
+      <h3>Pomoc w ucieczce nazistom</h3>
+      <p>Po II wojnie światowej część duchownych katolickich uczestniczyła w organizowaniu kanałów przerzutowych dla nazistowskich zbrodniarzy wojennych. Biskup Alois Hudal pomagał m.in. Franzowi Stanglowi, odpowiedzialnemu za obozy zagłady w Treblince i Sobiborze. Wśród osób, które korzystały z powojennych szlaków ucieczki, wymienia się także Josefa Mengelego, Klausa Barbiego oraz Adolfa Eichmanna.</p>
+    </div>
+  </article>
+
+  <!-- ========== CHAPTER V ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">V</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część piąta</div>
+        <h2>Polska Ludowa i relacje Kościoła z PRL</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1950 r.</span>
+      <h3>Porozumienie Kościoła z władzami komunistycznymi</h3>
+      <p>Kościół katolicki w Polsce zawarł porozumienie z władzami komunistycznymi okresu stalinowskiego. W jego ramach deklarowano m.in. zwalczanie pozostałości polskiego podziemia niepodległościowego, określanego przez władze jako „bandy podziemia".</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">Lata 80.</span>
+      <h3>Współpraca części duchownych ze Służbą Bezpieczeństwa</h3>
+      <p>Według przywoływanych danych część księży współpracowała z PRL-owską Służbą Bezpieczeństwa, donosząc na opozycję i obywateli, którzy często ufali Kościołowi jako instytucji niezależnej od państwa.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">16 sierpnia 1980 r.</span>
+      <h3>Odmowa mszy dla strajkujących stoczniowców</h3>
+      <p>Biskup Lech Kaczmarek odmówił odprawienia mszy dla strajkujących robotników Stoczni Gdańskiej. Msza została odprawiona dopiero po uzgodnieniach z władzami komunistycznymi.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">17 sierpnia 1980 r.</span>
+      <h3>Kazanie prymasa Stefana Wyszyńskiego</h3>
+      <p>Prymas Stefan Wyszyński w swoim kazaniu odniósł się krytycznie do strajków i zalecał powrót do pracy. Autor interpretuje to jako przykład ostrożnej lub ugodowej postawy części hierarchii kościelnej wobec władz PRL.</p>
+    </div>
+  </article>
+
+  <!-- ========== CHAPTER VI ========== -->
+  <article class="chapter">
+    <div class="chapter-header">
+      <div class="roman">VI</div>
+      <div class="chapter-title">
+        <div class="chapter-label">Część szósta</div>
+        <h2>III Rzeczpospolita, majątek Kościoła i współczesne kontrowersje</h2>
+      </div>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1983 r.</span>
+      <h3>Nowy Kodeks Prawa Kanonicznego</h3>
+      <p>Jan Paweł II zatwierdził nowy Kodeks Prawa Kanonicznego. Według krytyków zmiany te osłabiły skuteczność reagowania na przestępstwa seksualne duchownych wobec małoletnich, co sprzyjało ukrywaniu sprawców i przenoszeniu ich między parafiami.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1989 r.</span>
+      <h3>Komisja Majątkowa</h3>
+      <p>Powstała Komisja Majątkowa, której celem był zwrot majątku odebranego Kościołowi. Jej działalność nie podlegała wystarczającej kontroli państwowej. W późniejszych latach pojawiały się zarzuty dotyczące fałszowania dokumentów, zawyżania powierzchni gruntów oraz zaniżania ich wartości. Autor ocenia ten proces jako niekontrolowane przejmowanie majątku publicznego przez Kościół.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">1998 r.</span>
+      <h3>Ratyfikacja konkordatu</h3>
+      <p>Polska ratyfikowała konkordat ze Stolicą Apostolską. Dokument ten przyznał Kościołowi katolickiemu szczególną pozycję prawną w III Rzeczypospolitej. Według krytyków doprowadziło to do uprzywilejowania jednej wspólnoty religijnej kosztem świeckości państwa oraz podatników.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">2001 r.</span>
+      <h3>Tajność spraw dotyczących przestępstw seksualnych</h3>
+      <p>Jan Paweł II w dokumencie „O ochronie świętości sakramentów" objął sprawy dotyczące przestępstw seksualnych duchownych tajemnicą kościelną. Zdaniem krytyków przyczyniło się to do dalszego tuszowania nadużyć wobec dzieci, również w Polsce.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">2013 r.</span>
+      <h3>Sprawy Józefa Wesołowskiego i Wojciecha Gila</h3>
+      <p>Arcybiskup Józef Wesołowski oraz ksiądz Wojciech Gil zostali oskarżeni o czyny pedofilskie na Dominikanie. W reakcji na skandale abp Józef Michalik wypowiadał się w sposób, który według krytyków przerzucał część odpowiedzialności na dzieci, rodziców i edukację seksualną, zamiast jednoznacznie potępić sprawców wśród duchownych.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">2020 r.</span>
+      <h3>Zaostrzenie prawa aborcyjnego</h3>
+      <p>Kościół katolicki, wspólnie ze wspierającymi go środowiskami politycznymi, popierał ograniczenie praw kobiet w zakresie aborcji, również w przypadkach ciężkich i letalnych wad płodu. Decyzje te wywołały masowe protesty społeczne, a Kościół był przez wielu obywateli postrzegany jako instytucja ingerująca w prawa kobiet i świecki porządek państwa.</p>
+    </div>
+
+    <div class="event">
+      <span class="event-year">2020–2021 r.</span>
+      <h3>Pandemia COVID-19 i funkcjonowanie kościołów</h3>
+      <p>W czasie pandemii COVID-19 wprowadzano liczne ograniczenia dotyczące życia społecznego, działalności gospodarczej i przemieszczania się. Kościoły przez znaczną część tego okresu funkcjonowały na preferencyjnych zasadach. Według autora decyzje władz i postawa episkopatu narażały obywateli na ryzyko zdrowotne oraz pokazywały uprzywilejowaną pozycję Kościoła w państwie.</p>
+    </div>
+  </article>
+
+  <!-- ========== CONCLUSION ========== -->
+  <section class="conclusion">
+    <h2>Zakończenie</h2>
+    <p>Historia relacji Polski z Kościołem katolickim jest złożona i pełna sprzeczności. Obok duchownych wspierających polską kulturę, edukację i niepodległość istniały również decyzje hierarchii kościelnej, papiestwa oraz instytucji katolickich, które można oceniać jako szkodliwe dla polskiej racji stanu.</p>
+    <p>Celem tego zestawienia jest zwrócenie uwagi na te wydarzenia, które w debacie publicznej bywają pomijane albo przedstawiane jednostronnie. Aby tekst miał większą wartość historyczną, każdy punkt powinien zostać uzupełniony o konkretne źródła: dokumenty, opracowania naukowe, akty prawne, encykliki, listy papieskie oraz prace historyków.</p>
+  </section>
+
+  <footer>
+    <div class="seal" aria-hidden="true"></div>
+    <div>Explicit · Finis Coronat Opus</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
